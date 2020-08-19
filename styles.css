@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+:root {
+  --stripes: #b32570;
+  --main: #c0b3b6;
+  --head: #e2d1d5;
+  --thought: #e0e0e0;
+}
+body {
+  background: linear-gradient(to bottom, #9f9fb9 60%, #625656 40%);
+  height: 100vh;
+  cursor: crosshair;
+  overflow: hidden;
+}
+@keyframes disappear {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+    display: none;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.thought {
+  display: flex;
+  background-color: var(--thought);
+  padding: 10px;
+  border-radius: 30px;
+  width: 230px;
+  min-height: 60px;
+  margin: 20px;
+  position: absolute;
+  top: -50%;
+  left: 70%;
+  align-items: center;
+  transform: scale(0);
+  justify-content: center;
+  text-align: center;
+  animation: bounce 0.5s 1s ease-in-out forwards, disappear 0.5s 5s ease-in-out forwards;
+  transform-origin: bottom left;
+}
+.thought:before,
+.thought:after {
+  content: "";
+  background-color: var(--thought);
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+.thought:before {
+  width: 44px;
+  height: 44px;
+  top: -12px;
+  right: 28px;
+  box-shadow: -30px -30px 0 -12px var(--thought), 40px 20px 0 0 var(--thought);
+}
+.thought:after {
+  bottom: -10px;
+  left: 26px;
+  width: 30px;
+  height: 30px;
+  box-shadow: -28px -6px 0 -2px var(--thought), -24px 17px 0 -6px var(--thought),
+    -5px 25px 0 -10px var(--thought);
+}
+.bot-body {
+  width: 10rem;
+  height: 10rem;
+  background-color: var(--main);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  top: 25%;
+  left: 0;
+}
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3rem;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #dddddd;
+  font-size: .9rem;
+}
+.bot {
+  position: relative;
+  width: 10rem;
+  height: 15rem;
+  top: 50vh;
+}
+.bot-body:before {
+  content: "";
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 20% 30%, #d6d1d3c2, #00000000 58%);
+  filter: blur(2px);
+  z-index: 2;
+}
+
+.bot-shadow {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2rem;
+  bottom: 0rem;
+  z-index: -1;
+  border-radius: 50%;
+  background-color: #1f1e1eb2;
+  filter: blur(5px);
+}
+.body-stripe-one {
+  position: absolute;
+  width: 30rem;
+  height: 70rem;
+  border-radius: 50%;
+  top: 10%;
+  left: -50%;
+  border: 2px solid black;
+}
+.body-stripe-two {
+  position: absolute;
+  width: 30rem;
+  height: 70rem;
+  border-radius: 50%;
+  border: 2px solid black;
+  top: 10%;
+  left: -150%;
+}
+
+.ring {
+  border-radius: 50%;
+  position: absolute;
+  border: 0.8rem solid var(--stripes);
+  z-index: 111;
+}
+.one {
+  top: 50%;
+  left: -30%;
+  width: 70%;
+  height: 40%;
+  transform: rotate(60deg);
+}
+.one:after {
+  content: "";
+  top: -18%;
+  left: -5%;
+  height: 0;
+  position: absolute;
+  width: 110%;
+  height: 150%;
+  background-color: var(--main);
+  border-radius: 50%;
+}
+.two {
+  top: 8%;
+  right: 15%;
+  width: 100px;
+  height: 90px;
+  margin-left: -40px;
+  background-color: var(--main);
+}
+.two:after {
+  content: "";
+  top: -10%;
+  left: -5%;
+  height: 0;
+  position: absolute;
+  width: 85px;
+  height: 75px;
+  background-color: var(--main);
+  border-radius: 50%;
+}
+.three {
+  right: -25%;
+  bottom: 1%;
+  width: 70%;
+  height: 40%;
+  transform: rotate(-50deg);
+}
+.three:after {
+  content: "";
+  top: -18%;
+  left: -5%;
+  height: 0;
+  position: absolute;
+  width: 110%;
+  height: 150%;
+  background-color: var(--main);
+  border-radius: 50%;
+}
+.face {
+  position: relative;
+  top: 3%;
+  z-index: 11;
+  transform-origin: 80px 130px;
+  transition: all 0.5s ease-in-out;
+}
+.face-disk {
+  width: 6rem;
+  height: 4rem;
+  border-radius: 6rem 6rem 15px 15px;
+  background-color: var(--head);
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  overflow: hidden;
+  border: 0;
+  box-shadow: 0px 10px 50px #2f2f2f46;
+}
+.strip {
+  position: relative;
+  width: 100%;
+  left: 0;
+  background-color: var(--stripes);
+}
+.strip-1 {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  z-index: 50;
+  height: 8px;
+}
+.strip-2 {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  z-index: 50;
+  height: 5px;
+}
+.strip-3 {
+  position: absolute;
+  left: 0;
+  top: 35%;
+  height: 5px;
+}
+.eyes {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  right: 20%;
+  top: 25%;
+  border: 3px solid var(--head);
+  background-color: black;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+.eyes.move-left {
+  right: 60%;
+  transition: all 0.5s ease-in-out;
+}
+.eyes.move-right {
+  right: 20%;
+  transition: all 0.5s ease-in-out;
+}
+.eyes:before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  right: 20%;
+  top: 5px;
+}
+.eyes:after {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  position: absolute;
+  right: -0.5rem;
+  top: 1.2rem;
+  background-color: #161616;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px black;
+  border: 2px solid var(--head);
+}
+.antenna {
+  width: 3rem;
+  height: 4rem;
+  position: absolute;
+  left: 30%;
+  bottom: 5%;
+  transition: all 0.5s ease-in-out;
+}
+.an-right {
+  left: 60%;
+  transition: all 0.5s ease-in-out;
+}
+.an {
+  height: inherit;
+  width: 5px;
+  position: relative;
+  background-color: var(--stripes);
+  left: 20%;
+  top: 30%;
+  border-radius: 20px;
+}
+.an:after {
+  content: "";
+  width: inherit;
+  position: absolute;
+  height: 60%;
+  right: 10px;
+  bottom: 0;
+  background-color: var(--main);
+  border-radius: inherit;
+}
+.an:before {
+  content: "";
+  width: inherit;
+  position: absolute;
+  height: 50%;
+  top: 15%;
+  background-color: var(--main);
+  border-radius: 1px;
+}
